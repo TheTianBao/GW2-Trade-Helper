@@ -18,21 +18,15 @@ namespace GW2_Trade_Helper
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        #region "Save & Load"
         private void CMDcleanRows_click(object sender, EventArgs e)
         {
             CleanSales();
         }
-
         private void CMDsave_Click(object sender, EventArgs e)
         {
 
         }
-
         private void CMDexport_Click(object sender, EventArgs e)
         {
             // Don't save if no data is returned
@@ -80,7 +74,6 @@ namespace GW2_Trade_Helper
             // Confirm to the user it has been completed.
             MessageBox.Show("CSV file saved.");
         }
-
         private void CMDload_Click(object sender, EventArgs e)
         {
             string FilePath;
@@ -89,19 +82,19 @@ namespace GW2_Trade_Helper
             FilePath = OFDImport.FileName;
             LoadCSV(FilePath);
         }
-
         private void LoadCSV(string filePath)
         {
             StreamReader sr = new StreamReader(filePath);
 
-            // Wenn die ersten Zeile eine Header-Zeile ist:
+            // If the Colums are needed
             foreach (string s in sr.ReadLine().Split(';'))
             {
 
-                //this.DGVcurrentSales.Columns.Add();
+            //this.DGVcurrentSales.Columns.Add();
 
             }
 
+            // Write the Items
             while (!sr.EndOfStream)
             {
                 this.DGVcurrentSales.Rows.Add(sr.ReadLine().Split(';'));
@@ -109,12 +102,11 @@ namespace GW2_Trade_Helper
 
             sr.Close();
         }
-
         private void CleanSales()
         {
             DGVcurrentSales.Rows.Clear();
             DGVcurrentSales.Refresh();
         }
-
+        #endregion
     }
 }

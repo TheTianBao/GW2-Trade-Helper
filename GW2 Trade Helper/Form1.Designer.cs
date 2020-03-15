@@ -103,7 +103,6 @@
             this.DGVcurrentSales.Name = "DGVcurrentSales";
             this.DGVcurrentSales.Size = new System.Drawing.Size(1343, 414);
             this.DGVcurrentSales.TabIndex = 0;
-            this.DGVcurrentSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Currency
             // 
