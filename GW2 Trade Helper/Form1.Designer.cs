@@ -31,11 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.TCSales = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.GBmenu = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cmdLoad = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.DGVcurrentSales = new System.Windows.Forms.DataGridView();
             this.Currency = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PurchasingVolume = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,13 +45,17 @@
             this.PriceOffer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Profit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EffectiveProfit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.GBmenu = new System.Windows.Forms.GroupBox();
+            this.CMDcleanRows = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.button3 = new System.Windows.Forms.Button();
+            this.CMDexport = new System.Windows.Forms.Button();
+            this.CMDsave = new System.Windows.Forms.Button();
+            this.CMDload = new System.Windows.Forms.Button();
             this.TCSales.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVcurrentSales)).BeginInit();
             this.GBmenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // TCSales
@@ -71,7 +71,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.DGVcurrentSales);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -80,34 +80,10 @@
             this.tabPage1.Text = "Current Sales";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // DGVcurrentSales
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1349, 420);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "History";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // GBmenu
-            // 
-            this.GBmenu.Controls.Add(this.button3);
-            this.GBmenu.Controls.Add(this.splitter1);
-            this.GBmenu.Controls.Add(this.button2);
-            this.GBmenu.Controls.Add(this.button1);
-            this.GBmenu.Controls.Add(this.cmdLoad);
-            this.GBmenu.Location = new System.Drawing.Point(1192, 89);
-            this.GBmenu.Name = "GBmenu";
-            this.GBmenu.Size = new System.Drawing.Size(165, 118);
-            this.GBmenu.TabIndex = 0;
-            this.GBmenu.TabStop = false;
-            this.GBmenu.Text = "Menu";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGVcurrentSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVcurrentSales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Currency,
             this.ItemName,
             this.PurchasingVolume,
@@ -121,32 +97,12 @@
             this.PriceOffer,
             this.Profit,
             this.EffectiveProfit});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1343, 414);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // cmdLoad
-            // 
-            this.cmdLoad.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cmdLoad.Location = new System.Drawing.Point(3, 16);
-            this.cmdLoad.Name = "cmdLoad";
-            this.cmdLoad.Size = new System.Drawing.Size(159, 23);
-            this.cmdLoad.TabIndex = 0;
-            this.cmdLoad.Text = "Load Items";
-            this.cmdLoad.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.Location = new System.Drawing.Point(3, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Save Items";
-            this.button1.UseVisualStyleBackColor = true;
+            this.DGVcurrentSales.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGVcurrentSales.Location = new System.Drawing.Point(3, 3);
+            this.DGVcurrentSales.Name = "DGVcurrentSales";
+            this.DGVcurrentSales.Size = new System.Drawing.Size(1343, 414);
+            this.DGVcurrentSales.TabIndex = 0;
+            this.DGVcurrentSales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Currency
             // 
@@ -213,15 +169,40 @@
             this.EffectiveProfit.HeaderText = "Effective Profit (%)";
             this.EffectiveProfit.Name = "EffectiveProfit";
             // 
-            // button2
+            // tabPage2
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.Location = new System.Drawing.Point(3, 62);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(159, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Export Items";
-            this.button2.UseVisualStyleBackColor = true;
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1349, 420);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "History";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // GBmenu
+            // 
+            this.GBmenu.Controls.Add(this.CMDcleanRows);
+            this.GBmenu.Controls.Add(this.splitter1);
+            this.GBmenu.Controls.Add(this.CMDexport);
+            this.GBmenu.Controls.Add(this.CMDsave);
+            this.GBmenu.Controls.Add(this.CMDload);
+            this.GBmenu.Location = new System.Drawing.Point(1192, 89);
+            this.GBmenu.Name = "GBmenu";
+            this.GBmenu.Size = new System.Drawing.Size(165, 118);
+            this.GBmenu.TabIndex = 0;
+            this.GBmenu.TabStop = false;
+            this.GBmenu.Text = "Menu";
+            // 
+            // CMDcleanRows
+            // 
+            this.CMDcleanRows.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CMDcleanRows.Location = new System.Drawing.Point(3, 88);
+            this.CMDcleanRows.Name = "CMDcleanRows";
+            this.CMDcleanRows.Size = new System.Drawing.Size(159, 23);
+            this.CMDcleanRows.TabIndex = 4;
+            this.CMDcleanRows.Text = "Delete all Rows";
+            this.CMDcleanRows.UseVisualStyleBackColor = true;
+            this.CMDcleanRows.Click += new System.EventHandler(this.CMDcleanRows_click);
             // 
             // splitter1
             // 
@@ -232,15 +213,37 @@
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
             // 
-            // button3
+            // CMDexport
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.Location = new System.Drawing.Point(3, 88);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(159, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Delete all Rows";
-            this.button3.UseVisualStyleBackColor = true;
+            this.CMDexport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CMDexport.Location = new System.Drawing.Point(3, 62);
+            this.CMDexport.Name = "CMDexport";
+            this.CMDexport.Size = new System.Drawing.Size(159, 23);
+            this.CMDexport.TabIndex = 2;
+            this.CMDexport.Text = "Export Items";
+            this.CMDexport.UseVisualStyleBackColor = true;
+            this.CMDexport.Click += new System.EventHandler(this.CMDexport_Click);
+            // 
+            // CMDsave
+            // 
+            this.CMDsave.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CMDsave.Location = new System.Drawing.Point(3, 39);
+            this.CMDsave.Name = "CMDsave";
+            this.CMDsave.Size = new System.Drawing.Size(159, 23);
+            this.CMDsave.TabIndex = 1;
+            this.CMDsave.Text = "Save Items";
+            this.CMDsave.UseVisualStyleBackColor = true;
+            this.CMDsave.Click += new System.EventHandler(this.CMDsave_Click);
+            // 
+            // CMDload
+            // 
+            this.CMDload.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CMDload.Location = new System.Drawing.Point(3, 16);
+            this.CMDload.Name = "CMDload";
+            this.CMDload.Size = new System.Drawing.Size(159, 23);
+            this.CMDload.TabIndex = 0;
+            this.CMDload.Text = "Load Items";
+            this.CMDload.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -256,8 +259,8 @@
             this.Text = "GW2 Trade Helper";
             this.TCSales.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGVcurrentSales)).EndInit();
             this.GBmenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -267,10 +270,10 @@
         private System.Windows.Forms.TabControl TCSales;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DGVcurrentSales;
         private System.Windows.Forms.GroupBox GBmenu;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button cmdLoad;
+        private System.Windows.Forms.Button CMDsave;
+        private System.Windows.Forms.Button CMDload;
         private System.Windows.Forms.DataGridViewComboBoxColumn Currency;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn PurchasingVolume;
@@ -284,9 +287,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceOffer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Profit;
         private System.Windows.Forms.DataGridViewTextBoxColumn EffectiveProfit;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button CMDcleanRows;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CMDexport;
     }
 }
 
