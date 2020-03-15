@@ -25,13 +25,12 @@ namespace GW2_Trade_Helper
 
         private void CMDcleanRows_click(object sender, EventArgs e)
         {
-
-            DGVcurrentSales.Rows.Clear();
+            CleanSales();
         }
 
         private void CMDsave_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void CMDexport_Click(object sender, EventArgs e)
@@ -81,5 +80,41 @@ namespace GW2_Trade_Helper
             // Confirm to the user it has been completed.
             MessageBox.Show("CSV file saved.");
         }
+
+        private void CMDload_Click(object sender, EventArgs e)
+        {
+            string FilePath;
+            CleanSales();
+            OFDImport.ShowDialog();
+            FilePath = OFDImport.FileName;
+            LoadCSV(FilePath);
+        }
+
+        private void LoadCSV(string filePath)
+        {
+            StreamReader sr = new StreamReader(filePath);
+
+            // Wenn die ersten Zeile eine Header-Zeile ist:
+            foreach (string s in sr.ReadLine().Split(';'))
+            {
+
+                //this.DGVcurrentSales.Columns.Add();
+
+            }
+
+            while (!sr.EndOfStream)
+            {
+                this.DGVcurrentSales.Rows.Add(sr.ReadLine().Split(';'));
+            }
+
+            sr.Close();
+        }
+
+        private void CleanSales()
+        {
+            DGVcurrentSales.Rows.Clear();
+            DGVcurrentSales.Refresh();
+        }
+
     }
 }

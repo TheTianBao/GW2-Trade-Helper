@@ -52,6 +52,7 @@
             this.CMDexport = new System.Windows.Forms.Button();
             this.CMDsave = new System.Windows.Forms.Button();
             this.CMDload = new System.Windows.Forms.Button();
+            this.OFDImport = new System.Windows.Forms.OpenFileDialog();
             this.TCSales.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVcurrentSales)).BeginInit();
@@ -244,6 +245,11 @@
             this.CMDload.TabIndex = 0;
             this.CMDload.Text = "Load Items";
             this.CMDload.UseVisualStyleBackColor = true;
+            this.CMDload.Click += new System.EventHandler(this.CMDload_Click);
+            // 
+            // OFDImport
+            // 
+            this.OFDImport.FileName = "openFileDialog1";
             // 
             // MainForm
             // 
@@ -290,6 +296,7 @@
         private System.Windows.Forms.Button CMDcleanRows;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Button CMDexport;
+        private System.Windows.Forms.OpenFileDialog OFDImport;
     }
 }
 
