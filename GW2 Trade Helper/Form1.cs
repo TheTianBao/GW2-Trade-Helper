@@ -18,6 +18,76 @@ namespace GW2_Trade_Helper
             InitializeComponent();
         }
 
+        private void GridColor(ref int Rownumber)
+        {
+            string sColor;
+
+
+            if (!(DGVcurrentSales.Rows[Rownumber].Cells[0].Value == null))
+            {
+                sColor = DGVcurrentSales.Rows[Rownumber].Cells[0].Value.ToString();
+
+                if (sColor == "Copper")
+                    DGVcurrentSales.Rows[Rownumber].Cells[0].Style.BackColor = Color.Chocolate;
+                else if (sColor == "Silver")
+                    DGVcurrentSales.Rows[Rownumber].Cells[0].Style.BackColor = Color.Silver;
+                else if (sColor == "Gold")
+                    DGVcurrentSales.Rows[Rownumber].Cells[0].Style.BackColor = Color.Gold;
+           }
+        }
+
+        private void Calculation()
+        {
+            int RowNumber;
+            RowNumber = 0;
+            try
+            {
+                    foreach (DataGridViewRow row in DGVcurrentSales.Rows)
+                    {
+                        GridColor(ref RowNumber);
+                    // Purchase Total Price
+                    DGVcurrentSales.Rows[RowNumber].Cells[4].Value = Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[3].Value) * Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[2].Value);
+                    // Sales Total Price
+                    DGVcurrentSales.Rows[RowNumber].Cells[7].Value = Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[6].Value) * Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[5].Value);
+                    // Offer Fee
+                    DGVcurrentSales.Rows[RowNumber].Cells[8].Value = Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[7].Value) * 0.05;
+                    // Exchange Fee
+                    DGVcurrentSales.Rows[RowNumber].Cells[9].Value = Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[7].Value) * 0.1;
+                    // Price Offer
+                    DGVcurrentSales.Rows[RowNumber].Cells[10].Value = Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[9].Value) + Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[8].Value) + Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[7].Value);
+                    // Profit
+                    DGVcurrentSales.Rows[RowNumber].Cells[11].Value = Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[7].Value) - Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[4].Value) - Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[9].Value) - Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[8].Value);
+                    // Effective Profit
+                    DGVcurrentSales.Rows[RowNumber].Cells[12].Value = 100 / Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[4].Value) * Convert.ToDouble(DGVcurrentSales.Rows[RowNumber].Cells[11].Value) / 100;
+                    RowNumber = RowNumber + 1;
+                    }
+                
+
+
+            }
+            catch (InvalidCastException e)
+            {
+                MessageBox.Show("There was a Problem, we could not calculate your Offer."  + e.Message);
+            }
+        }
+
+        private void DGVcurrentSales_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+            try
+            {
+
+                Calculation();
+            }
+            catch (InvalidCastException ex)
+            {
+                //MessageBox.Show("There was a Problem, we could not calculate your Offer." + e.Message);
+            }
+            }
+
+
+
+
         #region "Save & Load"
         private void CMDcleanRows_click(object sender, EventArgs e)
         {
@@ -108,5 +178,7 @@ namespace GW2_Trade_Helper
             DGVcurrentSales.Refresh();
         }
         #endregion
+
+       
     }
 }
